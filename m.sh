@@ -26,7 +26,7 @@ SECRET=$(python3 -c "import os; print(os.urandom(16).hex())")
 
 echo "[+] 写入配置文件..."
 cat > config.py <<EOF
-PORT = 443
+PORT = 14657
 
 # name -> secret (32 hex chars)
 USERS = {
@@ -58,5 +58,5 @@ echo "[+] 启动代理服务..."
 nohup python3 mtprotoproxy.py > proxy.log 2>&1 &
 
 echo "[√] MTProto Proxy 启动成功！"
-echo "连接 URI：tg://proxy?server=<你的域名或IP>&port=443&secret=ee$SECRET"
+echo "连接 URI：tg://proxy?server=<你的域名或IP>&port=14657&secret=ee$SECRET"
 
