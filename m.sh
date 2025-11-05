@@ -36,7 +36,7 @@ MODES = {
     "tls": True
 }
 
-TLS_DOMAIN = "www.bing.com"
+TLS_DOMAIN = "www.visa.com"
 AD_TAG = ""
 
 # Prometheus Web 监控接口
