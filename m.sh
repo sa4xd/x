@@ -8,6 +8,14 @@ apt update && apt install -y git python3 python3-pip
 echo "[+] 克隆项目..."
 git clone -b stable https://github.com/alexbers/mtprotoproxy.git
 cd mtprotoproxy
+# 写入 requirements.txt
+cat > requirements.txt <<EOF
+aiohttp>=3.8.1
+uvloop>=0.17.0
+EOF
+
+# 安装依赖
+pip3 install -r requirements.txt
 
 echo "[+] 安装 Python 依赖..."
 pip3 install -r requirements.txt
