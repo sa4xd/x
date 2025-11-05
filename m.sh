@@ -26,15 +26,37 @@ SECRET=$(python3 -c "import os; print(os.urandom(16).hex())")
 
 echo "[+] 写入配置文件..."
 cat > config.py <<EOF
-PORT = 14657
+PORT = 443
+
+# name -> secret (32 hex chars)
 USERS = {
-    'tg': '$SECRET'
+    "tg": "$SECRET"
 }
-AD_TAG = ''
+
+MODES = {
+    # Classic mode, easy to detect
+    "classic": False,
+
+    # Makes the proxy harder to detect
+    # Can be incompatible with very old clients
+    "secure": False,
+
+    # Makes the proxy even more hard to detect
+    # Can be incompatible with old clients
+    "tls": True
+}
+
+# The domain for TLS mode, bad clients are proxied there
+TLS_DOMAIN = "www.bing.com"
+
+# Tag for advertising, obtainable from @MTProxybot
+AD_TAG = ""
 EOF
+
 
 echo "[+] 启动代理服务..."
 nohup python3 mtprotoproxy.py > proxy.log 2>&1 &
 
 echo "[√] MTProto Proxy 启动成功！"
-echo "连接密钥：$SECRET"
+echo "连接 URI：tg://proxy?server=<你的域名或IP>&port=443&secret=ee$SECRET"
+
