@@ -20,7 +20,7 @@ pip3 install -r requirements.txt
 
 echo "[+] 生成连接密钥..."
 SECRET=$(python3 -c "import os; print(os.urandom(16).hex())")
-
+SECRET='7402eddc952149e9dbdbb7a0181966da'
 echo "[+] 写入配置文件..."
 cat > config.py <<EOF
 PORT = 14657
@@ -51,5 +51,5 @@ nohup python3 mtprotoproxy.py > proxy.log 2>&1 &
 
 echo "[√] MTProto Proxy 启动成功！"
 echo "连接密钥：$SECRET"
-echo "连接 URI：tg://proxy?server=<你的域名或IP>&port=14657&secret=ee$SECRET"
+echo "连接 URI：tg://proxy?server=<你的域名或IP>&port=14657&secret=$SECRET"
 echo "监控接口：http://<你的域名或IP>:14657/metrics"
