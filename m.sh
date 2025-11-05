@@ -46,7 +46,7 @@ METRICS_WHITELIST = ["127.0.0.1", "::1", "0.0.0.0"]
 METRICS_EXPORT_LINKS = True
 EOF
 
-echo "[+] 启动代理服务..."
+echo "[+] 启动代理服务...."
 nohup python3 mtprotoproxy.py > proxy.log 2>&1 &
 
 echo "[√] MTProto Proxy 启动成功！"
