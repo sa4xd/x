@@ -21,7 +21,8 @@ echo "[+] 安装 Python 依赖..."
 pip3 install -r requirements.txt
 
 echo "[+] 生成连接密钥..."
-SECRET=$(head -c 16 /dev/urandom | xxd -ps)
+SECRET=$(python3 -c "import os; print(os.urandom(16).hex())")
+
 
 echo "[+] 写入配置文件..."
 cat > config.py <<EOF
