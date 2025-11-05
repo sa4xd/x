@@ -3,7 +3,7 @@
 set -e
 
 echo "[+] 安装依赖..."
-apt update && apt install -y git python3 python3-pip
+apt update && apt install -y git python3 python3-pip && apt install -y vim-common
 
 echo "[+] 克隆项目..."
 git clone -b stable https://github.com/alexbers/mtprotoproxy.git
