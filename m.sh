@@ -20,7 +20,7 @@ pip3 install -r requirements.txt
 
 echo "[+] 生成连接密钥..."
 SECRET=$(python3 -c "import os; print(os.urandom(16).hex())")
-SECRET='131646c4-8fe6-4bc3-804f-94a25059c39a'
+SECRET='6cd9871791e10847d6faa5cfcc47b568'
 echo "[+] 写入配置文件..."
 cat > config.py <<EOF
 PORT = 443
@@ -36,7 +36,7 @@ MODES = {
     "tls": True
 }
 
-TLS_DOMAIN = "www.cloudflare.com"
+TLS_DOMAIN = "cloudflare.com"
 AD_TAG = ""
 
 EOF
