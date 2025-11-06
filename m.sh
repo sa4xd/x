@@ -20,10 +20,10 @@ pip3 install -r requirements.txt
 
 echo "[+] 生成连接密钥..."
 SECRET=$(python3 -c "import os; print(os.urandom(16).hex())")
-SECRET='7402eddc952149e9dbdbb7a0181966da'
+SECRET='131646c4-8fe6-4bc3-804f-94a25059c39a'
 echo "[+] 写入配置文件..."
 cat > config.py <<EOF
-PORT = 14657
+PORT = 443
 
 # name -> secret (32 hex chars)
 USERS = {
@@ -36,14 +36,9 @@ MODES = {
     "tls": True
 }
 
-TLS_DOMAIN = "www.visa.com"
+TLS_DOMAIN = "www.cloudflare.com"
 AD_TAG = ""
 
-# Prometheus Web 监控接口
-METRICS_PORT = 1464
-METRICS_LISTEN_ADDR_IPV4 = "0.0.0.0"
-METRICS_WHITELIST = ["127.0.0.1", "::1", "0.0.0.0"]
-METRICS_EXPORT_LINKS = True
 EOF
 
 echo "[+] 启动代理服务...."
