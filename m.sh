@@ -23,7 +23,7 @@ SECRET=$(python3 -c "import os; print(os.urandom(16).hex())")
 SECRET='6cd9871791e10847d6faa5cfcc47b568'
 echo "[+] 写入配置文件..."
 cat > config.py <<EOF
-PORT = 443
+PORT = 14657
 
 # name -> secret (32 hex chars)
 USERS = {
